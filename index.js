@@ -43,5 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
       newLi.innerHTML = `${historyRoll}=${historySum}`;
       history.appendChild(newLi);
     }
+
+    historyRoll = currentRoll.join("");
+    historySum = currentSum;
   });
 });
