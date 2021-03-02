@@ -1,3 +1,8 @@
+// My SMART:
+// is to able to store the value of my input user so I can calculate and add the result on my "sum value".
+// to be able that by the end of fixing my code i get better understanding of how to use addEventListener().
+// how to use different ways to solved my essues.
+
 document.addEventListener("DOMContentLoaded", ()=>{
     const input = document.getElementById('number-Dice') 
     const btn = document.getElementById('roll-dice')
@@ -5,53 +10,36 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const p = document.querySelector('#sum-para')
     const ul = document.querySelector('#saved')
     let arr = []
+    let count = 0
+    let arrSum = 0
+    let countSum = []
 
 
     btn.addEventListener('click', ()=>{
         if(input.value !== ""){
-            const dice = ['⚀',
-                '⚁',
-                '⚂',
-                '⚃',
-                '⚄',
-                '⚅',]
+            const dicelist = [{dice:'⚀', value: 1},
+            {dice:'⚁', value: 2},
+            {dice:'⚂', value: 3},
+            {dice:'⚃', value: 4},
+            {dice:'⚄', value: 5},
+            {dice:'⚅', value: 6}
+            ]
             arr = []
+            arrSum = 0
             for(i = 0; i < input.value; i++){
-                let newArr = dice[Math.floor(Math.random()* dice.length)]
-                arr += newArr
-                if(arr.length = 1){
-                    p2.textContent = arr
-                }else{
-                    p2.textContent = arr[newArr]
-                }
-                
-
-                if(p2.textContent === '⚀'){
-                    p.textContent = `Sum = ${1}`
-                    p.textContent.length.value
-                } else if(p2.textContent === '⚁'){
-                    p.textContent = `Sum = ${2}`
-                }else if(p2.textContent === '⚂'){
-                    p.textContent = `Sum = ${3}`
-                }else if(p2.textContent === '⚃'){
-                    p.textContent = `Sum = ${4}`
-                }else if(p2.textContent === '⚄'){
-                    p.textContent = `Sum = ${5}`
-                }else if(p2.textContent === '⚅'){
-                    p.textContent = `Sum = ${6}`
-                
-                }
-                console.log(arr)
-                
+                let newArr = dice[Math.floor(Math.random()* dicelist.length)]
+                p2.textContent += dicelist[newArr].dice
+                arrSum += dicelist[newArr].value
+   
             }
-            const li = document.createElement('li')
-                li.textContent = arr
+            
+            
+            count++
+            if(count > 1){
+                const li = document.createElement('li')
                 ul.appendChild(li)
-                if(p.textContent === li.textContent){
-                    return 
-                }else{
-                    li.textContent = `${arr} ${p.textContent}`
-                }
+                li.textContent = `${arr}  Sum =  ${p.textContent}`
+            }
                
         }
         
