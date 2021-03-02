@@ -1,3 +1,29 @@
+#diceroll {
+margin: 10px;
+}
+
+#diceform {
+    font-size: 20px;
+}
+
 #rollresult {
     border: 1px solid black;
+    margin: 10px;
+    font-size: 20px;
+    display: block;
+
+}
+
+#dice-para {
+    font-size: 30px;
+}
+
+#history {
+    border: 1px solid black;
+margin: 10px;
+font-size: 20px;
+}
+
+li {
+    font-size: 20px;
 }
