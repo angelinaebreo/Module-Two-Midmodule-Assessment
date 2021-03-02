@@ -6,13 +6,12 @@
 document.addEventListener("DOMContentLoaded", ()=>{
     const input = document.getElementById('number-Dice') 
     const btn = document.getElementById('roll-dice')
-    const p2 = document.querySelector('#dice-rolloed')
+    const p2 = document.querySelector('#dice-para')
     const p = document.querySelector('#sum-para')
     const ul = document.querySelector('#saved')
     let arr = []
     let count = 0
     let arrSum = 0
-    let countSum = []
 
 
     btn.addEventListener('click', ()=>{
@@ -26,19 +25,22 @@ document.addEventListener("DOMContentLoaded", ()=>{
             ]
             arr = []
             arrSum = 0
+            
             for(i = 0; i < input.value; i++){
-                let newArr = dice[Math.floor(Math.random()* dicelist.length)]
-                p2.textContent += dicelist[newArr].dice
+                let newArr = Math.floor(Math.random()* dicelist.length)
+               arr += dicelist[newArr].dice
+               p2.textContent = arr
                 arrSum += dicelist[newArr].value
-   
+                p.textContent = `Sum = ${arrSum}`
             }
-            
-            
+           
             count++
             if(count > 1){
                 const li = document.createElement('li')
+                li.textContent = `${p2.textContent}  ${p.textContent}`
                 ul.appendChild(li)
-                li.textContent = `${arr}  Sum =  ${p.textContent}`
+                
+                
             }
                
         }
