@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     let arr = []
     let count = 0
     let arrSum = 0
+    let check = []
 
 
     btn.addEventListener('click', ()=>{
@@ -31,15 +32,16 @@ document.addEventListener("DOMContentLoaded", ()=>{
                arr += dicelist[newArr].dice
                p2.textContent = arr
                 arrSum += dicelist[newArr].value
-                p.textContent = `Sum = ${arrSum}`
             }
            
             count++
+            p.textContent = "Sum = " + arrSum
+            check[count] = `${p2.textContent} ${p.textContent}`
+            
             if(count > 1){
                 const li = document.createElement('li')
-                li.textContent = `${p2.textContent}  ${p.textContent}`
+                li.textContent = check[count-1]
                 ul.appendChild(li)
-                
                 
             }
                
